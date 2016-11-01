@@ -1,0 +1,31 @@
+### 百思不得姐API
+
+- 请求URL地址：
+	-  ` http://route.showapi.com/255-1`
+- 请求参数：
+	- 	`HTTP协议，支持GET/POST方法`
+- 参数
+	- 系统级参数（所有接入点都需要的参数） 
+		- showapi_appid（必要）可用：17899
+		- showapi_sign （必要）可用：9208b4bf256a46c0b9f51f653ab6e8ae
+	- 应用级参数（每个接入点都有自己的参数）
+		- type(非必要)
+			- type=10 图片
+			- type=29 段子
+			- type=31 声音
+			- type=41 视频 
+		- title(非必要)
+			-文本中包括的内容，模糊查询	 
+		- page（非必要）
+			-第几页，每页最多返回20条记录，默认为1
+- 返回参数：
+	- 以JSON格式返回结果。
+		- 系统级参数所有接口都会返回。
+		- 应用级参数在showapi_res_body字段封装的对象中，选取几个参数分析：
+			- love //点赞数
+			- hate //点踩数
+			- height //图片高度
+			- width //图片宽度
+			- imageNum //0，1，2，3四种尺寸的图片
+			- is_gif //是否是gif
+- 类型：所有参数类型为String字符串。 
