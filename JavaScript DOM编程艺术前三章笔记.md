@@ -69,7 +69,7 @@ function multiply(num1,num2){
 function multiply(num1,num2){
 	var total = num * num2;
 	return(total);
-}`
+}
 ```
 
 #### 变量作用域
