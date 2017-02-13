@@ -6,47 +6,35 @@
 
 - CordovaInterface接口分析：
 
-  ```
-    CordovaInterface是Cordova应用的底层接口，CordovaActivity需要实现这个接口。用来隔离Cordova插件开发，隔离插件对Cordova核心库的直接依赖。主要方法有startActivityForResult，setActivityResultCallback，getActivity，onMessage，getThreadPool这几个接口方法。具体的实现在CordovaActivity中。
-  ```
+  >   CordovaInterface是Cordova应用的底层接口，CordovaActivity需要实现这个接口。用来隔离Cordova插件开发，隔离插件对Cordova核心库的直接依赖。主要方法有startActivityForResult，setActivityResultCallback，getActivity，onMessage，getThreadPool这几个接口方法。具体的实现在CordovaActivity中。
 
 - CordovaActivity核心分析：
 
-  ```
-    CordovaActivity是Cordova应用的入口类，用户用来加载html页面Activity需要加载这个Activity。CordovaActivity会读取Cordova配置文件res/xml/config.xml中的配置。CordovaActivity继承了Android Activity，实现了CordovaInterface接口。比较重要的成员变量有CordovaWebView appView，CordovaWebViewClicnt webViewClient,线程池threadPool。CordovaActivity继承了Activity,因此它的生命周期和Activity一样。
-  ```
+  > CordovaActivity是Cordova应用的入口类，用户用来加载html页面Activity需要加载这个Activity。CordovaActivity会读取Cordova配置文件res/xml/config.xml中的配置。CordovaActivity继承了Android Activity，实现了CordovaInterface接口。比较重要的成员变量有CordovaWebView appView，CordovaWebViewClicnt webViewClient,线程池threadPool。CordovaActivity继承了Activity,因此它的生命周期和Activity一样。
 
 - CordovaWebView类分析：
 
-  ```
-    CordovaWebView类继承了Android WebView类，包含了PluginManager pluginManager,BroadcastReceiver receiver,CordovaResourceApi resourceApi等重要的成员变量，与其他核心类关联起来。接着，按情况分别调用自身的setWebChromeClient,initWebViewClient,loadConfiguration,setup方法。
-  ```
+  >   CordovaWebView类继承了Android WebView类，包含了PluginManager pluginManager,BroadcastReceiver receiver,CordovaResourceApi resourceApi等重要的成员变量，与其他核心类关联起来。接着，按情况分别调用自身的setWebChromeClient,initWebViewClient,loadConfiguration,setup方法。
 
 - CordovaWebViewClient类分析：
 
-  ```
-    CordovaWebViewClient类继承了android WebViewClient，实现了CordovaWebView的回调函数，这些回调函数在渲染文档的过程中会被触发，例如onPageStarted(),shouldOverrideUrlLoading()等方法。
-  ```
+  >   CordovaWebViewClient类继承了android WebViewClient，实现了CordovaWebView的回调函数，这些回调函数在渲染文档的过程中会被触发，例如onPageStarted(),shouldOverrideUrlLoading()等方法。
 
   ​
 
 - CordovaResourceApi类分析：
 
 
-  ```
-    Cordova Android使用okhttp框架作为网络访问框架，其封装了okhttp，主要提供了3个功能：
-    	1.读写Url的助手方法。
-    	2.允许插件重定向Url。
-    	3.通过createHttpConnection()方法暴露Cordova自带的okhttp库。
-  ```
+  >   Cordova Android使用okhttp框架作为网络访问框架，其封装了okhttp，主要提供了3个功能：
+  >   	1.读写Url的助手方法。
+  >   	2.允许插件重定向Url。
+  >   	3.通过createHttpConnection()方法暴露Cordova自带的okhttp库。
 
   ​
 
 - CordovaPlugin类：
 
-  ```
-  在自定义插件时必须继承这个类，重写excute(String action,JsonArray args,CallbackContext callbackContext)方法。
-  ```
+  > 在自定义插件时必须继承这个类，重写excute(String action,JsonArray args,CallbackContext callbackContext)方法。
 
 - CordovaManager类:
 
