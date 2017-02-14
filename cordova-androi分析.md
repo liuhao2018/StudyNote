@@ -177,3 +177,12 @@
 
   ​
 
+
+### 3.开发中需要注意的地方：
+
+##### 因为Cordova的开源性质和产品定位，使得每个人都可以开发自己的Cordova插件，这也就导致了目前Cordova插件质量残次不齐。所以需要注意一下几个方面：
+
+- 首先，和硬件交互相关的场景，最好使用Cordova的官方插件，这些插件都是经过了实践的检验的，基本上不会有什么太大的问题。具体的插件列表查看[官方发布日志](https://cordova.apache.org/news/2016/04/20/plugins-release.html)
+- 目前，国内的推送厂商只有极光推送官方推出了Cordova插件，github:[https://github.com/jpush/jpush-phonegap-plugin](https://github.com/jpush/jpush-phonegap-plugin)。
+- github上有一位国外开发者开发了一些Cordova插件，star数不错。github:[https://github.com/katzer](https://github.com/katzer)。
+
