@@ -17,9 +17,9 @@ head标签中添加script标签，并在其中书写js代码。
 
 在JavaScript中，数组可以用关键字Array声明。声明数组的同时还可以指定数组的初始元素的个数，也就是数组的长度。
 
-`var beatles = Array(4);   //给出个数`
+`var beatles = new Array(4);   //给出个数`
 
-`var beatles = Array();     //没有给出个数` 
+`var beatles = new Array();     //没有给出个数` 
 
 ##### 简单方式
 `var beatles = Array('John','Paul','George','Ringo');`
@@ -41,7 +41,7 @@ beatles[0] = lennon;
 ##### 创建方式
 ```
 第一种：
-var lennon = Object();
+var lennon = new Object();
 lennon.name = 'John';
 lennon.year = 1940;
 lennon.living = false;
